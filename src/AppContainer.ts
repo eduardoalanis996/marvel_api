@@ -10,6 +10,7 @@ import { CollaboratorRepositoryImpl } from "./domain/repositories/Collaborator.r
 import { CharacterRepositoryImp } from "./domain/repositories/Character.repository";
 import { CharacterComicRepositoryImp } from "./domain/repositories/CharacterComic.respository";
 import { CollaboratorComicRepositoryImpl } from "./domain/repositories/CollaboratorComic.repository";
+import { SyncLogRepository } from "./domain/repositories/SyncLog.repository";
 
 import dotenv from 'dotenv';
 
@@ -31,7 +32,8 @@ container.register({
     collaboratorRepositoryImpl: asClass(CollaboratorRepositoryImpl).scoped(),
     characterRepositoryImp: asClass(CharacterRepositoryImp).scoped(),
     characterComicRepositoryImp: asClass(CharacterComicRepositoryImp).scoped(),
-    collaboratorComicRepositoryImpl: asClass(CollaboratorComicRepositoryImpl).scoped()
+    collaboratorComicRepositoryImpl: asClass(CollaboratorComicRepositoryImpl).scoped(),
+    syncLogRepository: asClass(SyncLogRepository).scoped(),
 })
 
 

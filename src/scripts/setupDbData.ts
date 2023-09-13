@@ -1,10 +1,7 @@
 import express, { Express } from 'express';
 import { MigrationService } from '../application/services/Migration.service';
-import { postgresConnection } from '../common/persistence/PostgresConnection';
 import { container } from '../AppContainer';
 import dotenv from 'dotenv';
-import * as fs from 'fs';
-import path = require('path');
 
 dotenv.config();
 

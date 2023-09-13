@@ -1,12 +1,15 @@
 import { CollaboratorRepositoryImpl } from "../../domain/repositories/Collaborator.repository"
+import { SyncLogRepository } from "../../domain/repositories/SyncLog.repository"
 
 export class CollaboratorService {
 
     constructor(
-        private readonly collaboratorRepositoryImpl: CollaboratorRepositoryImpl
+        private readonly collaboratorRepositoryImpl: CollaboratorRepositoryImpl,
+        private readonly syncLogRepository: SyncLogRepository,
     ) { }
 
     public async getCollaboratorOnCharacterByCode(code: string): Promise<{ [key: string]: any }> {
+        const lastSyncDate = await this.syncLogRepository.getLastDate()
         const collaborators = await this.collaboratorRepositoryImpl.getAllByCharacterCode(code)
         const groupedByRole: { [key: string]: any } = {}
 
@@ -19,7 +22,7 @@ export class CollaboratorService {
             }
         })
 
-        return {...groupedByRole, last_sync: new Date() }
+        return {...groupedByRole, last_sync: lastSyncDate.last_sync_date}
     }
 
 }
