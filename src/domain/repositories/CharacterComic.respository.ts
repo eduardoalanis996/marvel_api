@@ -14,7 +14,6 @@ export class CharacterComicRepositoryImp implements ICharacterComicRepository {
             })
             await Promise.all(findOrCreate)
         } catch (e) {
-            console.log(e)
             throw e
         }
     }

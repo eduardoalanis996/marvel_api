@@ -13,7 +13,6 @@ export class CharacterRepositoryImp implements ICharacterRepository {
                 updateOnDuplicate: ['id', 'name', 'code'],
             })
         } catch (e) {
-            console.log(e)
             throw e
         }
     }
@@ -32,7 +31,6 @@ export class CharacterRepositoryImp implements ICharacterRepository {
 
             return resultQuery[0]
         } catch (e) {
-            console.log(e)
             throw e
         }
     }

@@ -13,8 +13,6 @@ export class MarvelRepositoryImpl implements IMarvelRepository {
         this.MARVEL_API_URL = process.env.MARVEL_API_URL
         this.MARVEL_API_PUBLIC_KEY = process.env.MARVEL_API_PUBLIC_KEY
         this.MARVEL_API_PRIVATE_KEY = process.env.MARVEL_API_PRIVATE_KEY
-
-        console.log(process.env.MARVEL_API_URL,process.env.MARVEL_API_PUBLIC_KEY,process.env.MARVEL_API_PRIVATE_KEY)
     }
 
     private getAutenticationParams(): string {
@@ -39,7 +37,7 @@ export class MarvelRepositoryImpl implements IMarvelRepository {
             const result = await axios.get(`${this.MARVEL_API_URL}characters?name=${name}&${authParams}`)
             return result.data
         } catch (e) {
-            throw new Error("Error getCharacterByName");
+            throw e
         }
     }
 
@@ -49,8 +47,7 @@ export class MarvelRepositoryImpl implements IMarvelRepository {
             const result = await axios.get(`${this.MARVEL_API_URL}characters?name=${name}&${authParams}`)
             return result.data.data.results[0]?.id
         } catch (e) {
-            console.log(e,authParams,`${this.MARVEL_API_PRIVATE_KEY}${this.MARVEL_API_PUBLIC_KEY}`)
-            throw new Error("Error getCharacterByName");
+            throw e
         }
     }
 
@@ -61,8 +58,7 @@ export class MarvelRepositoryImpl implements IMarvelRepository {
             const result = await axios.get(`${this.MARVEL_API_URL}comics?limit=10format=comic&characters=${charactersIdParam}&${authParams}`)
             return result.data.data.results
         } catch (e) {
-            console.log(e)
-            throw new Error("Error getCharacterByName");
+            throw e
         }
     }
 

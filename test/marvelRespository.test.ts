@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { describe, it, before, after } from 'mocha';
-import { MarvelRepositoryImpl } from '../../src/domain/repositories/Marvel.respository';
+import { MarvelRepositoryImpl } from '../src/domain/repositories/Marvel.respository';
 
 let marvelRepositoryImpl: MarvelRepositoryImpl
 let characterId: number

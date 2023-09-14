@@ -15,7 +15,6 @@ export class CollaboratorRepositoryImpl implements ICollaboratorRepository {
                 updateOnDuplicate: ['id', 'name', 'role'],
             })
         } catch (e) {
-            console.log(e)
             throw e
         }
     }
@@ -32,7 +31,6 @@ export class CollaboratorRepositoryImpl implements ICollaboratorRepository {
 
             return resultQuery[0] as Collaborator[]
         } catch (e) {
-            console.log(e)
             throw e
         }
     }

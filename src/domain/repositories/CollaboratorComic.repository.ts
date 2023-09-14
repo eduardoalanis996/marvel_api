@@ -15,7 +15,6 @@ export class CollaboratorComicRepositoryImpl implements ICollaboratorComicReposi
             })
             await Promise.all(findOrCreate)
         } catch (e) {
-            console.log(e)
             throw e
         }
     }
