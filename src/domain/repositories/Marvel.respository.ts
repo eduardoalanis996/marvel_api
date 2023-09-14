@@ -55,7 +55,7 @@ export class MarvelRepositoryImpl implements IMarvelRepository {
         try {
             const charactersIdParam = characterIds.join(',')
             const authParams = this.getAutenticationParams()
-            const result = await axios.get(`${this.MARVEL_API_URL}comics?limit=10format=comic&characters=${charactersIdParam}&${authParams}`)
+            const result = await axios.get(`${this.MARVEL_API_URL}comics?limit=50format=comic&characters=${charactersIdParam}&${authParams}`)
             return result.data.data.results
         } catch (e) {
             throw e

@@ -10,8 +10,6 @@ COPY . .
 
 RUN npm run build
 
-RUN npm run sync
-
 EXPOSE 80
 
 CMD [ "node", "dist/index.js" ]
